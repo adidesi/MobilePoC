@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClientUser } from '../../shared/models/ClientUser';
 import {ClientPage} from '../client/client';
+import { ToastController } from 'ionic-angular';
+import { HelpPage } from '../help/help';
 
 /**
  * Generated class for the LoginPage page.
@@ -17,7 +19,7 @@ import {ClientPage} from '../client/client';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -39,5 +41,36 @@ export class LoginPage {
     console.log("Client Dhaval login");
     //console.log("Client Dhaval login"+deepak.username+deepak.usertype+deepak.linkedBeneficiaries+deepak.linkedAccount);
     this.navCtrl.setRoot(ClientPage,{"userProfile" : dhaval});
+  }
+  Actor4login(event){
+    let toast = this.toastCtrl.create({
+      message: 'I forgot functionality of actor 4',
+      duration: 1500,
+      position: 'bottom',
+      showCloseButton:true,
+      closeButtonText:'OK'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed Actor4login toast');
+    });
+  
+    toast.present();
+  }
+  Banklogin(event){
+    let toast = this.toastCtrl.create({
+      message: 'I don\'t know functionality of Bank user',
+      duration: 1500,
+      position: 'bottom'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed Actor4login toast');
+    });
+  
+    toast.present();
+  }
+  helpPage(event){
+    this.navCtrl.push(HelpPage);
   }
 }
