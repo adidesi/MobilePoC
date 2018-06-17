@@ -48,7 +48,7 @@ export class LoginPage {
   }
 
   clientDhavallogin(event){
-    let dhaval  = new ClientUser("Dhaval","client",[new Account("dhaval_account","10000")],["deepak_account"]);
+    let dhaval  = new ClientUser("Dhaval","client",[new Account("dhaval_account","10000")],["deepak_account","fake_deepak_account"]);
     console.log("Client Dhaval login");
     //console.log("Client Dhaval login"+deepak.username+deepak.usertype+deepak.linkedBeneficiaries+deepak.linkedAccount);
     this.navCtrl.setRoot(ClientPage,{"userProfile" : dhaval});

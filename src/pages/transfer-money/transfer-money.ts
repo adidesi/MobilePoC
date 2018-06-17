@@ -4,6 +4,8 @@ import { Account } from '../../shared/models/Account';
 import { ClientUser } from '../../shared/models/ClientUser';
 import { Transaction } from '../../shared/models/Transaction'
 import { ToastController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+import { ClientPage } from '../client/client';
 /**
  * Generated class for the TransferMoneyPage page.
  *
@@ -53,9 +55,17 @@ export class TransferMoneyPage {
     
       toast.onDidDismiss(() => {
         console.log('Dismissed Actor4login toast');
-      });
-    
+      });    
       toast.present();
     }
+  }
+
+  reload(event){
+    this.navCtrl.setRoot(ClientPage,{"userProfile": this.navParams.get("userProfile")});
+  }
+
+  logout($event){
+    //this.plt.exitApp();
+    this.navCtrl.setRoot(LoginPage)
   }
 }

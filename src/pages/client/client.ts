@@ -5,6 +5,7 @@ import { Platform } from 'ionic-angular';
 import {Account} from '../../shared/models/Account'
 import { HelpPage } from '../help/help';
 import { TransferMoneyPage } from '../transfer-money/transfer-money';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the ClientPage page.
@@ -45,7 +46,8 @@ export class ClientPage {
   }
 
   logout($event){
-    this.plt.exitApp();
+    //this.plt.exitApp();
+    this.navCtrl.setRoot(LoginPage)
   }
 
   displayBalance(){
@@ -57,7 +59,7 @@ export class ClientPage {
   }
 
   transferMoney(event){
-    this.navCtrl.push(TransferMoneyPage,{"userProfile" : this.navParams.get("userProfile"),"selected_acc":this.selected_account});
+    this.navCtrl.setRoot(TransferMoneyPage,{"userProfile" : this.navParams.get("userProfile"),"selected_acc":this.selected_account});
   }
 
   checkTransactionHistory(event){

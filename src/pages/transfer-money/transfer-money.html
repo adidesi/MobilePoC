@@ -6,9 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Transfer Money</ion-title>
-  </ion-navbar>
+<ion-navbar color="orgcolor">
+      <ion-buttons start>
+          <button ion-button clear small ioncolor="orgcolor" (click)="reload($event)"><ion-icon name="home" color="light"></ion-icon></button>
+          <button ion-button clear small ioncolor="orgcolor" (click)="logout($event)"><ion-icon name="power" color="light"></ion-icon></button>
+      </ion-buttons>
+      <ion-title>Welcome, {{username}}</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
@@ -16,7 +20,7 @@
 <ion-content padding>
   <div>
     <p>
-      Hi, {{username}}
+      Transfer from {{selectedAccountID}}
     </p>
   </div>
   <div>
@@ -27,7 +31,7 @@
       </ion-row>
       <ion-row>
         <ion-label color='primary' >Account To</ion-label>
-        <ion-select [(ngModel)]="selected_bene" interface="popover" (ionChange)= "displayBalance()">
+        <ion-select [(ngModel)]="selected_bene" interface="popover">
             <ion-option *ngFor="let account of bene_accounts" [value]="account">{{account}}</ion-option>
         </ion-select>
       </ion-row>
