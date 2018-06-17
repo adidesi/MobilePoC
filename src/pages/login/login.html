@@ -6,7 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="bnpparibas">
+    <ion-buttons start>
+        <button ion-button clear small ioncolor="bnpparibas" (click)="reload($event)"><ion-icon name="home" color="light"></ion-icon></button>
+        <button ion-button clear small ioncolor="bnpparibas" (click)="logout($event)"><ion-icon name="power" color="light"></ion-icon></button>
+    </ion-buttons>
     <ion-title>BlockChain Front End</ion-title>
   </ion-navbar>
 
@@ -38,7 +42,7 @@
     </ion-col>
   </ion-row>
   <ion-row>
-    <button ion-button icon-start full outline color="primary"(click)="helpPage($event)"><ion-icon name="help-circle" color="danger"></ion-icon>Help</button>
+    <button ion-button icon-start full outline color="primary"(click)="helpPage($event)"><ion-icon name="help-circle" color="primary"></ion-icon>Help</button>
   </ion-row>
 </ion-grid>
 

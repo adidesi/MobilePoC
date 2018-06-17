@@ -6,13 +6,41 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Welcome, {{title_username}}</ion-title>
-  </ion-navbar>
+  <ion-navbar color="bnpparibas">
+      <ion-buttons start>
+          <button ion-button clear small ioncolor="bnpparibas" (click)="reload($event)"><ion-icon name="home" color="light"></ion-icon></button>
+          <button ion-button clear small ioncolor="bnpparibas" (click)="logout($event)"><ion-icon name="power" color="light"></ion-icon></button>
+      </ion-buttons>
+      <ion-title>Welcome, {{title_username}}</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-THIS IS CLIENT PAGE,{{title_username}}
+  <div align="center">
+    <p>Please select your account from list :</p>
+    <ion-select [(ngModel)]="selected_account" value="selected_account.accountID" interface="popover" (ionChange)= "displayBalance()">
+        <ion-option *ngFor="let account of linkedAccounts" [value]="account">{{account.accountID}}</ion-option>
+    </ion-select>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>Your Balance :</ion-col>
+      <ion-col>{{selected_account_bal}}</ion-col>
+    </ion-row>
+    <ion-row>
+        <button ion-button icon-start full color="firebrick" (click)="transferMoney($event)"><ion-icon name="contact" color="paper-plane"></ion-icon>Transfer Money</button>
+    </ion-row>
+    <ion-row>
+        <button ion-button icon-start full color="secondary" (click)="checkTransactionHistory($event)"><ion-icon name="speedometer" color="light"></ion-icon>Check Past Transaction</button>
+    </ion-row>
+    <ion-row>
+        <button ion-button icon-start full color="purple" (click)="addBeneficiary($event)"><ion-icon name="person-add" color="light"></ion-icon>Add Beneficiery</button>
+    </ion-row>
+    <ion-row>
+        <button ion-button icon-start full outline color="primary"(click)="helpPage($event)"><ion-icon name="help-circle" color="primary"></ion-icon>Help</button>
+    </ion-row>
+  </ion-grid>
 </ion-content>

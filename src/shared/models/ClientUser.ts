@@ -1,15 +1,16 @@
 import {User} from './User'
+import {Account} from '../../shared/models/Account'
 
 export class ClientUser extends User{
-    linkedAccount: string[];
+    linkedAccounts: Account[];
     linkedBeneficiaries : string[];
     accountBalance : string;
     
 
-    constructor(username: string, usertype: string, linkedAccount: string[],linkedBeneficiaries: string[]){
+    constructor(username: string, usertype: string, linkedAccounts: Account[],linkedBeneficiaries: string[]){
         super(username,usertype);
         
-        this.linkedAccount = linkedAccount;
+        this.linkedAccounts = linkedAccounts;
         this.linkedBeneficiaries = linkedBeneficiaries;
     }
 }

@@ -1,10 +1,19 @@
 import {Transaction} from './Transaction'
 
 export class Account{
-    accountNumber : string;
+    accountID : string;
     accountBalance : string;
-    constructor(accountNumber: string, accountBalance: string){
-        this.accountNumber = accountNumber;
+    private transactionHist : Transaction[];
+    constructor(accountID: string, accountBalance: string){
+        this.accountID = accountID;
         this.accountBalance = accountBalance;
+    }
+
+    addTransaction(newTranx : Transaction){
+        this.transactionHist.push(newTranx);
+    }
+
+    getTransactionHist():Transaction[]{
+        return this.transactionHist;
     }
 }

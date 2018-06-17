@@ -8,13 +8,15 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { ClientPage } from '../pages/client/client';
 import { HelpPage } from '../pages/help/help';
+import { TransferMoneyPage } from '../pages/transfer-money/transfer-money';
 
 @NgModule({
   declarations: [
     MyApp,
     LoginPage,
     ClientPage,
-    HelpPage
+    HelpPage,
+    TransferMoneyPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { HelpPage } from '../pages/help/help';
     MyApp,
     LoginPage,
     ClientPage,
-    HelpPage
+    HelpPage,
+    TransferMoneyPage
   ],
   providers: [
     StatusBar,

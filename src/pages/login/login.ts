@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClientUser } from '../../shared/models/ClientUser';
 import {ClientPage} from '../client/client';
+import {Account} from '../../shared/models/Account'
 import { ToastController } from 'ionic-angular';
 import { HelpPage } from '../help/help';
+import { Platform } from 'ionic-angular';
 
 /**
  * Generated class for the LoginPage page.
@@ -19,7 +21,8 @@ import { HelpPage } from '../help/help';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private toastCtrl: ToastController,public plt: Platform) {
   }
 
   ionViewDidLoad() {
@@ -30,14 +33,22 @@ export class LoginPage {
     console.log("Looks like I'm about to leave :(");
   }
 
+  reload($event){
+    this.navCtrl.setRoot(LoginPage);
+  }
+  
+  logout($event){
+    this.plt.exitApp();
+  }
+
   clientDeepaklogin(event){
-    let deepak  = new ClientUser("Deepak","client",["deepak_account"],["dhaval_account"]);
+    let deepak  = new ClientUser("Deepak","client",[new Account("deepak_account","10000"),new Account("fake_deepak_account","5000")],["dhaval_account"])
     //console.log("Client Deepak login"+deepak.username+deepak.usertype+deepak.linkedBeneficiaries+deepak.linkedAccount);
     this.navCtrl.setRoot(ClientPage,{"userProfile" : deepak});
   }
 
   clientDhavallogin(event){
-    let dhaval  = new ClientUser("Dhaval","client",["dhaval_account"],["deepak_account"]);
+    let dhaval  = new ClientUser("Dhaval","client",[new Account("dhaval_account","10000")],["deepak_account"]);
     console.log("Client Dhaval login");
     //console.log("Client Dhaval login"+deepak.username+deepak.usertype+deepak.linkedBeneficiaries+deepak.linkedAccount);
     this.navCtrl.setRoot(ClientPage,{"userProfile" : dhaval});
