@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, DateTime } from 'ionic-angular';
 import { Account } from '../../shared/models/Account';
 import { ClientUser } from '../../shared/models/ClientUser';
 import { Transaction } from '../../shared/models/Transaction'
+import { ToastController } from 'ionic-angular';
 /**
  * Generated class for the TransferMoneyPage page.
  *
@@ -27,7 +28,7 @@ export class TransferMoneyPage {
   selected_bene:string;
   bene_accounts:string[];
   inpt_amount:number;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -43,6 +44,18 @@ export class TransferMoneyPage {
   sendToBank(){
     if(parseFloat(this.selectedAccountBalance) - this.inpt_amount > 0){
       this.transaction = new Transaction(this.selected_bene, this.selectedAccountID, this.inpt_amount+"", new Date(),"Pending");
+    }else{
+      let toast = this.toastCtrl.create({
+        message: 'You have Insufficient Balance in the Account',
+        duration: 3000,
+        position: 'bottom'
+      });
+    
+      toast.onDidDismiss(() => {
+        console.log('Dismissed Actor4login toast');
+      });
+    
+      toast.present();
     }
   }
 }
