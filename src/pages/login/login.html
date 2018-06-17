@@ -14,15 +14,16 @@
 
 
 <ion-content padding>
+  <ion-img src="assets/imgs/bnp-paribas-logo.png" cache="false" width="100%" height="12.8%"></ion-img>
 <div align="center">
   <p>Welcome to BlockChain Front End</p>
   <p>Enter Login Details</p>
   <p>Choose from provided roles</p>
 </div>
-<button ion-button icon-start full color="firebrick"><ion-icon name="contact" color="light"></ion-icon>User: Deepak</button>
-<button ion-button icon-start full color="purple"><ion-icon name="contact" color="light"></ion-icon>User: Dhaval</button>
-<button ion-button icon-start full color="bnpparibas"><ion-icon name="key" color="light"></ion-icon>Bank User</button>
-<button ion-button icon-start full color="dark"><ion-icon name="ionitron" color="light"></ion-icon>Actor 4</button>
-<button ion-button icon-start full outline color="danger"><ion-icon name="help-circle" color="danger"></ion-icon>Help</button>
+<button ion-button icon-start full color="firebrick" (click)="clientDeepaklogin($event)"><ion-icon name="contact" color="light"></ion-icon>User: Deepak</button>
+<button ion-button icon-start full color="purple" (click)="clientDhavallogin($event)"><ion-icon name="contact" color="light"></ion-icon>User: Dhaval</button>
+<button ion-button icon-start full color="bnpparibas" (click)="Banklogin($event)"><ion-icon name="key" color="light"></ion-icon>Bank User</button>
+<button ion-button icon-start full color="dark" (click)="Actor4login($event)"><ion-icon name="ionitron" color="light"></ion-icon>Actor 4</button>
+<button ion-button icon-start full outline color="primary"(click)="helpPage($event)"><ion-icon name="help-circle" color="danger"></ion-icon>Help</button>
 
 </ion-content>
